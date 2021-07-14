@@ -26,3 +26,7 @@
   background-color: #4056A1;
   color: #FFFFFF;
 }
+
+.invalid {
+  color: red;
+}
