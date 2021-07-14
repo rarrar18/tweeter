@@ -36,7 +36,7 @@
       </div>
     </nav>
     <!-- Header -->
-    <header>
+    <header class="main-header">
       <div class="header-element">
           <img src="/images/profile-hex.png"> 
       </div>
@@ -61,6 +61,33 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+
+      <section class="old-tweets">
+        <article class="tweet">
+
+          <header>
+            <div id="tweet-user">
+              <img src="/images/profile-hex.png"> 
+              <span id="tweet-username">Username</span>
+            </div>
+            <span id="tweet-handle">@Handle</span>
+          </header>
+
+          <br>
+          <p>This is where the tweet shows up</p>
+          <br>
+
+          <footer>
+            <span id="tweet-timestamp"># days ago</span>
+            <div id="tweet-icons">
+              <span><i class="fas fa-flag"></i></span>
+              <span><i class="fas fa-retweet"></i></span>
+              <span><i class="fas fa-heart"></i></span>
+            </div>
+          </footer>
+
+        </article>
       </section>
 
     </main>

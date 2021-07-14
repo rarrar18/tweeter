@@ -1,3 +1,7 @@
+.new-tweet {
+  width: 100%;
+}
+
 .new-tweet label {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: bold;
@@ -8,6 +12,12 @@
   background-color: transparent;
   border: 0px;
   border-bottom: 4px solid black;
+  resize: none;
+  padding-top: 1em;
+}
+
+.new-tweet textarea:focus {
+  outline: none;
 }
 
 #tweet-form {
@@ -29,4 +39,59 @@
 
 .invalid {
   color: red;
+}
+
+/* old tweets */
+.old-tweets {
+  width: 100%;
+}
+
+article.tweet {
+  margin-top: 1em;
+  border: 5px solid grey;
+  padding: 1em;
+}
+
+article.tweet:hover {
+  box-shadow: 5px 5px thistle;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+#tweet-user {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50px;
+}
+
+#tweet-handle {
+  font-weight: bold;
+  color:thistle;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-top: 5px solid grey;
+  padding: 10px;
+}
+
+#tweet-timestamp {
+  font-size: 0.7em;
+}
+
+#tweet-icons .fas {
+  color: #4056A1;
+}
+
+#tweet-icons .fas:hover {
+  color: orange;
 }
