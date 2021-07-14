@@ -19,7 +19,7 @@
   outline: none;
 }
 
-#tweet-form {
+#tweet-textarea {
   display: flex;
   flex-direction: column;
 }

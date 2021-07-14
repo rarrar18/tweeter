@@ -1,6 +1,24 @@
 // uses jQuery to load to the page
 $(document).ready(function() {
   renderTweets(tweetsData);
+
+  // submit event handler for creating a new tweet
+  $( "#tweet-form" ).submit(function( event ) {
+    event.preventDefault();
+    // post request to server upon submission
+    $.ajax({
+      method: "POST",
+      url: "/tweets",
+      data: $('#tweet-form').serialize()
+    })
+      .then(function( res ) {
+        console.log(res);
+      });
+    // create a text string in URL-encoded notation
+    console.log($(this).serialize());
+    // $(this).serialize();
+    // alert( "Handler for .submit() called." );
+  });
 });
 // takes in an array of several tweet objects and appends them to the old tweets section
 const renderTweets = function(tweetsData) {
@@ -63,3 +81,6 @@ const tweetsData = [
     "created_at": 1461113959088
   }
 ];
+
+///SUBMIT EVENT
+
