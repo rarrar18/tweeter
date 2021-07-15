@@ -109,10 +109,13 @@ article.tweet footer {
 }
 
 #tweet-error {
-  display: flex;
+  /* visibility: hidden; */
+  
+  display: none;
   justify-content: center;
   color: red;
   border: 3px solid red;
   padding: 1em;
   margin-bottom: 1em;
+  animation-delay: 2s;
 }

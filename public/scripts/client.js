@@ -36,7 +36,7 @@ $(document).ready(function() {
         
         <p>${escape(tweet.content.text)}</p>
         
-        <footer>
+        <footer class="tweet-footer">
           <span id="tweet-timestamp">${timeago.format(tweet.created_at)}</span>
           <div id="tweet-icons">
             <span><i class="fas fa-flag"></i></span>
@@ -47,7 +47,6 @@ $(document).ready(function() {
       </article>`
     ;
     
-    // const $tweet = $('<article>').addClass('tweet');
     return $tweet;
   };
   
@@ -70,28 +69,37 @@ $(document).ready(function() {
     console.log($("#tweet-text").val());
     // check if the value in the tweet text area is over 140 chars
     if ($("#tweet-text").val().length > 140) {
+      $('#tweet-error').empty();
       // if it goes over the value, submit button should not work
-      alert( "Error! Surpassed the 140 character limit." );
-      return;
-    }
-
-    // post request to server upon submission
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: $(this).serialize()
-    })
+      const $errMsg = `Error: Surpassed the 140 character limit!`;
+      // takes return value and apppends it to the error container
+      $('#tweet-error').append($errMsg);
+      if ($("#tweet-error").is(":hidden")) {
+        $("#tweet-error").slideDown("slow");
+      }
       // check if the value within the tweet text area is empty
-      .fail(function(error) {
-        alert( "Error! Submitted an empty form." );
+    } else if($("#tweet-text").val().length === 0) {
+      $('#tweet-error').empty();
+      // if it goes over the value, submit button should not work
+      const $errMsg = `Error: Submitted an empty form!`;
+      // takes return value and apppends it to the error container
+      $('#tweet-error').append($errMsg);
+      if ($("#tweet-error").is(":hidden")) {
+        $("#tweet-error").slideDown("slow");
+      }
+    } else {
+      // post request to server upon submission
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: $(this).serialize()
       })
-      .then(function( res ) {
-        console.log(res);
-        loadTweets();
-      });
-    // create a text string in URL-encoded notation
+        .then(function( res ) {
+          $("#tweet-error").slideUp("slow");
+          loadTweets();
+        });
+    }
   });
-  
 });
 
 
