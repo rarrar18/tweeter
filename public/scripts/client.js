@@ -14,11 +14,17 @@ $(document).ready(function() {
   };
 
   loadTweets();
-
+  // escape function to hide user inputted text
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
   // takes in a tweet object, returns a tweet <article> containing the entire HTML structure of tweet
   const createTweetElement = function(tweet) {
+    
     //use jQuery to construct new elements using $
-    const $tweet = $(
+    const $tweet =
       `<article class="tweet">
         <header>
           <div id="tweet-user">
@@ -27,9 +33,9 @@ $(document).ready(function() {
           </div>
           <span id="tweet-handle">${tweet.user.handle}</span>
         </header>
-        <br>
-        <p>${tweet.content.text}</p>
-        <br>
+        
+        <p>${escape(tweet.content.text)}</p>
+        
         <footer>
           <span id="tweet-timestamp">${timeago.format(tweet.created_at)}</span>
           <div id="tweet-icons">
@@ -39,7 +45,9 @@ $(document).ready(function() {
           </div>
         </footer>
       </article>`
-    );
+    ;
+    
+    // const $tweet = $('<article>').addClass('tweet');
     return $tweet;
   };
   
@@ -59,12 +67,24 @@ $(document).ready(function() {
   // submit event handler for creating a new tweet
   $tweetForm.submit(function(event) {
     event.preventDefault();
+    console.log($("#tweet-text").val());
+    // check if the value in the tweet text area is over 140 chars
+    if ($("#tweet-text").val().length > 140) {
+      // if it goes over the value, submit button should not work
+      alert( "Error! Surpassed the 140 character limit." );
+      return;
+    }
+
     // post request to server upon submission
     $.ajax({
       method: "POST",
       url: "/tweets",
       data: $(this).serialize()
     })
+      // check if the value within the tweet text area is empty
+      .fail(function(error) {
+        alert( "Error! Submitted an empty form." );
+      })
       .then(function( res ) {
         console.log(res);
         loadTweets();

@@ -7,7 +7,7 @@ $(document).ready(function() {
     // navigate to the counter output from textarea input
     const $counter = $(this).parent('div').siblings('div').children('.counter');
     // counter should update to the remaining characters left on the textarea input
-    $counter.html(tweetCharLeft);
+    $counter.text(tweetCharLeft);
     // check if the tweet char length is over 140 characters, if so turn counter red
     tweetCharLeft < 0 ? $counter.addClass('invalid') : $counter.removeClass('invalid');
     // make sure you cannot press submit if counter is red
