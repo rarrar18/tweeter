@@ -94,10 +94,12 @@ $(document).ready(function() {
         url: "/tweets",
         data: $(this).serialize()
       })
-        .then(function() {
-          $("#tweet-error").slideUp("slow");
-          loadTweets();
-        });
+      // hide error messages, empty text area, then load newly posted tweet
+      .then(function() {
+        $("#tweet-error").slideUp("slow");
+        $("#tweet-text").val("");
+        loadTweets();
+      });
     }
   });
 });

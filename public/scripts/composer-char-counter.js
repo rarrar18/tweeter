@@ -13,9 +13,3 @@ $(document).ready(function() {
     // make sure you cannot press submit if counter is red
   });
 });
-
-//Using jQuery and an appropriate selector, register an event handler to the textarea element for the form inside of the .new-tweet section.
-
-// $("#tweet-text").on('input', function() {
-//   console.log(this);
-// });
