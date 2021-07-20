@@ -1,29 +1,30 @@
-/* Tablet Styles */
-@media only screen and (min-width: 768px) {
-
-}
-
 /* Desktop Styles */
 @media only screen and (min-width: 1024px) {
   body {
     display: flex;
     justify-content: flex-start;
-    /* align-items: flex-start; */
-    /* flex-direction: column; */
+    align-items: flex-start;
+    flex-direction: row;
   }
   main {
     width: 50%;
     display: flex;
     justify-content: flex-start;
-    
+    margin-top: 7rem;
+    margin-right: 2em;
+  }
+
+  nav {
+    top: 0;
+    background-color: #4056A1;
   }
 
   .main-header {
     width: 50%;
     display: flex;
     padding: 1rem;
-    margin: 6em;
-    /* justify-content: center; */
+    margin: 2em;
+    margin-top: 10rem;
   }
 
   .header-element {

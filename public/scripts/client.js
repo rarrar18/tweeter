@@ -10,20 +10,19 @@ $(document).ready(function() {
       success: (tweets) => {
         renderTweets(tweets);
       }
-    })
+    });
   };
-
+  
   loadTweets();
   // escape function to hide user inputted text
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
   // takes in a tweet object, returns a tweet <article> containing the entire HTML structure of tweet
   const createTweetElement = function(tweet) {
-    
-    //use jQuery to construct new elements using $
+    //use jQuery to construct new elements using $ with template literals
     const $tweet =
       `<article class="tweet">
         <header>
@@ -74,11 +73,12 @@ $(document).ready(function() {
       const $errMsg = `Error: Surpassed the 140 character limit!`;
       // takes return value and apppends it to the error container
       $('#tweet-error').append($errMsg);
+      // check if the error box is hidden, if it is, display it
       if ($("#tweet-error").is(":hidden")) {
         $("#tweet-error").slideDown("slow");
       }
       // check if the value within the tweet text area is empty
-    } else if($("#tweet-text").val().length === 0) {
+    } else if ($("#tweet-text").val().length === 0) {
       $('#tweet-error').empty();
       // if it goes over the value, submit button should not work
       const $errMsg = `Error: Submitted an empty form!`;
@@ -94,37 +94,10 @@ $(document).ready(function() {
         url: "/tweets",
         data: $(this).serialize()
       })
-        .then(function( res ) {
+        .then(function() {
           $("#tweet-error").slideUp("slow");
           loadTweets();
         });
     }
   });
 });
-
-
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetsData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];

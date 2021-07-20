@@ -38,13 +38,11 @@
 }
 
 #tweet-button:hover {
-  /* box-shadow: 5px 5px thistle; */
   background-color: #2c3d76;
   color: #FFFFFF;
 }
 
 #tweet-button:active {
-  /* box-shadow: 5px 5px thistle; */
   color: #4056A1;
   background-color: #FFFFFF;
 }
@@ -53,7 +51,7 @@
   color: red;
 }
 
-/* old tweets */
+/* Below styles all old tweets */
 .old-tweets {
   width: 100%;
 }
