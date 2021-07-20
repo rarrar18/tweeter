@@ -6,11 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Project Features
 
-Write and Post New Tweets
-
-Responsive Desktop Style
+[Write and Post New Tweets](https://github.com/rarrar18/tweeter/blob/master/docs/tweet-tablet.png?raw=true)
 
 Dynamic Error Handling
+
+[Responsive Desktop Style](https://github.com/rarrar18/tweeter/blob/master/docs/tweet-desktop.png?raw=true)
 
 ## Getting Started
 
