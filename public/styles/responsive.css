@@ -1,0 +1,32 @@
+/* Tablet Styles */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    justify-content: flex-start;
+    /* align-items: flex-start; */
+    /* flex-direction: column; */
+  }
+  main {
+    width: 50%;
+    display: flex;
+    justify-content: flex-start;
+    
+  }
+
+  .main-header {
+    width: 50%;
+    display: flex;
+    padding: 1rem;
+    margin: 6em;
+    /* justify-content: center; */
+  }
+
+  .header-element {
+    top: 0;
+  }
+}
