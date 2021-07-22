@@ -96,6 +96,7 @@ $(document).ready(function() {
       })
       // hide error messages, empty text area, then load newly posted tweet
       .then(function() {
+        $(".counter").val(140);
         $("#tweet-error").slideUp("slow");
         $("#tweet-text").val("");
         loadTweets();
