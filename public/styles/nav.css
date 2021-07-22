@@ -17,8 +17,24 @@ nav {
   font-weight: 400;
 }
 
+/* STRETCH: Bounce animation on new-tweet arrows */
 .fa-angle-double-down {
-  color: red;
+  color: lightgoldenrodyellow;
+  margin-top: 0.5em;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  transform-origin: bottom;
+}
+
+.bounce {
+  animation-name: bounce;
+  animation-timing-function: ease;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
 }
 
 .write-new {
@@ -26,4 +42,9 @@ nav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 1em;
 }
+
+/* .write-new:hover {
+  
+} */
